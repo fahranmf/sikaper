@@ -10,9 +10,7 @@ Route::get('/', function () {
 
 // Dashboard Karyawan (hanya role: karyawan)
 Route::middleware(['auth', 'role:karyawan'])->group(function () {
-    Route::get('/dashboard-karyawan', function () {
-        return view('dashboard.karyawan');
-    })->name('dashboard.karyawan');
+    Route::get('/dashboard-karyawan', [\App\Http\Controllers\DashboardKaryawanController::class, 'index'])->name('dashboard.karyawan');
     Route::get('/pengaduan/buat', [\App\Http\Controllers\PengaduanController::class, 'create'])->name('pengaduan.create');
     Route::post('/pengaduan/store', [\App\Http\Controllers\PengaduanController::class, 'store'])->name('pengaduan.store');
     Route::get('/pengaduan/saya', [\App\Http\Controllers\PengaduanController::class, 'index'])->name('pengaduan.index');
