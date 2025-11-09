@@ -21,6 +21,8 @@ Route::middleware(['auth', 'role:hr,manager'])->group(function () {
     Route::get('/dashboard-hr', function () {
         return view('dashboard.hr');
     })->name('dashboard.hr');
+    Route::get('/pengaduan/list', [\App\Http\Controllers\PengaduanHrController::class, 'index'])->name('pengaduan.index');
+    Route::post('/pengaduan/{pengaduan}/status', [\App\Http\Controllers\PengaduanHrController::class, 'updateStatus'])->name('pengaduan.updateStatus');
 });
 
 // Profile (masih bisa untuk semua user yang login)
