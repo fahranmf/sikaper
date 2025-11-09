@@ -94,3 +94,8 @@
     ``
     
     ---
+    <p align="center">
+      <img src="https://github.com/user-attachments/assets/d1a7ea3d-68d6-45ba-96c2-bd3f6d044a30" alt="Gausah Nanya Kalo Bukan Wita" width="1500" height="300"/>
+    </p>
+
+
