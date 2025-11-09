@@ -10,7 +10,7 @@
 
   <!-- Navbar -->
   <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center shadow-md">
-    <a href="#" class="text-xl font-bold tracking-wide">SIKAPer</a>
+    <a href="/" class="text-xl font-bold tracking-wide">SIKAPer | <span class="text-yellow-400 text-sm"> Sistem Keluhan Internal Karyawan Perusahaan</span></a>
     <div class="space-x-3">
       <a href="/login" class="px-4 py-2 border border-white rounded-lg hover:bg-white hover:text-gray-900 transition">Login</a>
       <a href="/register" class="px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-lg hover:bg-yellow-300 transition">Register</a>
