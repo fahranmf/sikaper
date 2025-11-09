@@ -26,6 +26,10 @@ Route::middleware(['auth', 'role:hr,manager'])->group(function () {
     Route::get('/data-karyawan', [\App\Http\Controllers\KaryawanController::class, 'index'])->name('hr.karyawan.index');
     Route::get('/user/create', [\App\Http\Controllers\UserHrController::class, 'create'])->name('hr.user.create');
     Route::post('/user/store', [\App\Http\Controllers\UserHrController::class, 'store'])->name('hr.user.store');
+    Route::get('/data-admin', [\App\Http\Controllers\UserHrController::class, 'index'])->name('hr.user.index');
+    Route::delete('/user/{user}/delete', [\App\Http\Controllers\UserHrController::class, 'destroy'])
+    ->name('hr.user.destroy');
+
 });
 
 // Profile (masih bisa untuk semua user yang login)

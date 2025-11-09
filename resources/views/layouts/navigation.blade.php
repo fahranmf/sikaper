@@ -39,7 +39,7 @@
                         <!-- Dashboard HR -->
                         <a href="{{ route('dashboard.hr') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                                        {{ request()->routeIs('dashboard.hr') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                                {{ request()->routeIs('dashboard.hr') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -51,7 +51,7 @@
                         <!-- List Pengaduan -->
                         <a href="{{ url('/pengaduan/list') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                        {{ request()->is('pengaduan/list') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                {{ request()->is('pengaduan/list') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -63,7 +63,7 @@
                         <!-- List Karyawan -->
                         <a href="{{ url('/data-karyawan') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                        {{ request()->is('data-karyawan') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                {{ request()->is('data-karyawan') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -73,8 +73,9 @@
                         </a>
 
                         <!-- Tambah HR/Manager -->
-                        <a href="{{ url('/user/create') }}" class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                        {{ request()->is('user/create') ? 'bg-gray-100 font-semibold' : '' }}">
+                        <a href="{{ url('/user/create') }}"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
+                                                                {{ request()->is('user/create') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -83,11 +84,23 @@
                             <span x-show="open">Add User</span>
                         </a>
 
+                        <!-- List HR/Manager -->
+                        <a href="{{ url('/data-admin') }}"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
+                                                                {{ request()->is('data-admin') ? 'bg-gray-100 font-semibold' : '' }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 2a2 2 0 00-2 2v2H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2h-4V4a2 2 0 00-2-2h-4zM8 10h8" />
+                            </svg>
+                            <span x-show="open">List HR/Manager</span>
+                        </a>
+
 
                         <!-- Profile -->
                         <a href="{{ route('profile.edit') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                                        {{ request()->routeIs('profile.edit') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                                {{ request()->routeIs('profile.edit') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -99,7 +112,7 @@
                         <!-- Dashboard Karyawan -->
                         <a href="{{ route('dashboard.karyawan') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                                                {{ request()->routeIs('dashboard.karyawan') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                                        {{ request()->routeIs('dashboard.karyawan') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -109,8 +122,9 @@
                         </a>
 
                         <!-- Buat Pengaduan -->
-                        <a href="{{ url('/pengaduan/buat') }}" class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                    {{ request()->is('pengaduan/buat') ? 'bg-gray-100 font-semibold' : '' }}">
+                        <a href="{{ url('/pengaduan/buat') }}"
+                            class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
+                                                            {{ request()->is('pengaduan/buat') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
@@ -121,7 +135,7 @@
                         <!-- Pengaduan Saya -->
                         <a href="{{ url('/pengaduan/saya') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                        {{ request()->is('pengaduan/saya') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                {{ request()->is('pengaduan/saya') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -133,7 +147,7 @@
                         <!-- Profile -->
                         <a href="{{ route('profile.edit') }}"
                             class="flex items-center gap-3 px-4 py-2 rounded-md text-gray-700 hover:bg-gray-100 transition
-                                                                                {{ request()->routeIs('profile.edit') ? 'bg-gray-100 font-semibold' : '' }}">
+                                                                                        {{ request()->routeIs('profile.edit') ? 'bg-gray-100 font-semibold' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-600" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

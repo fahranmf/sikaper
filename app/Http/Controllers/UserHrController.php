@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
 class UserHrController extends Controller
 {
     // Tampilkan form tambah user HR/Manager
+    public function index()
+    {
+        // Ambil semua user dengan role karyawan
+        $karyawans = User::whereIn('role', ['hr', 'manager'])
+            ->orderBy('name')
+            ->get();
+
+        return view('hr.admin_index', compact('karyawans'));
+    }
+
     public function create()
     {
         return view('hr.user_create');
@@ -33,6 +43,18 @@ class UserHrController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('hr.user.create')->with('success', 'User HR/Manager berhasil ditambahkan!');
+        return redirect()->route('hr.user.index')->with('success', 'User HR/Manager berhasil ditambahkan!');
+    }
+
+    public function destroy(User $user)
+    {
+        // pastikan hanya bisa hapus user HR/Manager, bukan karyawan atau admin lain
+        if (!in_array($user->role, ['hr', 'manager'])) {
+            return redirect()->back()->with('error', 'Kamu hanya bisa menghapus akun HR/Manager!');
+        }
+
+        $user->delete();
+
+        return redirect()->route('hr.user.index')->with('success', 'Akun HR/Manager berhasil dihapus.');
     }
 }
