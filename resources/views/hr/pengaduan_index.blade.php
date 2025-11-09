@@ -16,7 +16,7 @@
 
                 <table class="w-full text-left border-collapse">
                     <thead>
-                        <tr class="border-b">
+                        <tr class="border-b bg-gray-100 text-gray-700">
                             <th class="py-2 px-3">#</th>
                             <th class="py-2 px-3">Nama Karyawan</th>
                             <th class="py-2 px-3">Judul</th>
@@ -55,11 +55,32 @@
                                 <td class="py-2 px-3">
                                     <form method="POST" action="{{ route('pengaduan.updateStatus', $p->id) }}">
                                         @csrf
-                                        <select name="status" onchange="this.form.submit()" class="border-gray-300 rounded-md text-sm">
-                                            <option value="menunggu" {{ $p->status === 'menunggu' ? 'selected' : '' }}>Menunggu</option>
-                                            <option value="diproses" {{ $p->status === 'diproses' ? 'selected' : '' }}>Diproses</option>
-                                            <option value="selesai" {{ $p->status === 'selesai' ? 'selected' : '' }}>Selesai</option>
-                                        </select>
+                                            <select 
+                                                name="status" 
+                                                onchange="this.form.submit()" 
+                                                class="appearance-none border border-gray-300 rounded-md px-3 py-1.5 text-sm font-medium
+                                                    focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500
+                                                    transition duration-150 ease-in-out
+                                                    bg-white text-gray-700 cursor-pointer"
+                                            >
+                                                <option value="menunggu" 
+                                                    class="text-yellow-600 font-medium bg-yellow-50"
+                                                    {{ $p->status === 'menunggu' ? 'selected' : '' }}>
+                                                    Menunggu
+                                                </option>
+
+                                                <option value="diproses" 
+                                                    class="text-blue-600 font-medium bg-blue-50"
+                                                    {{ $p->status === 'diproses' ? 'selected' : '' }}>
+                                                    Diproses
+                                                </option>
+
+                                                <option value="selesai" 
+                                                    class="text-green-600 font-medium bg-green-50"
+                                                    {{ $p->status === 'selesai' ? 'selected' : '' }}>
+                                                    Selesai
+                                                </option>
+                                            </select>
                                     </form>
                                 </td>
                                 <td class="py-2 px-3 text-sm text-gray-500">{{ $p->created_at->format('d M Y') }}</td>

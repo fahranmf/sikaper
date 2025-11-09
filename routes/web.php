@@ -23,6 +23,9 @@ Route::middleware(['auth', 'role:hr,manager'])->group(function () {
     })->name('dashboard.hr');
     Route::get('/pengaduan/list', [\App\Http\Controllers\PengaduanHrController::class, 'index'])->name('pengaduan.index');
     Route::post('/pengaduan/{pengaduan}/status', [\App\Http\Controllers\PengaduanHrController::class, 'updateStatus'])->name('pengaduan.updateStatus');
+    Route::get('/data-karyawan', [\App\Http\Controllers\KaryawanController::class, 'index'])->name('hr.karyawan.index');
+    Route::get('/user/create', [\App\Http\Controllers\UserHrController::class, 'create'])->name('hr.user.create');
+    Route::post('/user/store', [\App\Http\Controllers\UserHrController::class, 'store'])->name('hr.user.store');
 });
 
 // Profile (masih bisa untuk semua user yang login)
