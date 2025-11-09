@@ -18,9 +18,9 @@ Route::middleware(['auth', 'role:karyawan'])->group(function () {
 
 // Dashboard HR / Manager
 Route::middleware(['auth', 'role:hr,manager'])->group(function () {
-    Route::get('/dashboard-hr', function () {
-        return view('dashboard.hr');
-    })->name('dashboard.hr');
+    Route::get('/dashboard-hr', [\App\Http\Controllers\DashboardHrController::class, 'index'])
+        ->middleware(['auth', 'role:hr,manager'])
+        ->name('dashboard.hr');
     Route::get('/pengaduan/list', [\App\Http\Controllers\PengaduanHrController::class, 'index'])->name('pengaduan.index');
     Route::post('/pengaduan/{pengaduan}/status', [\App\Http\Controllers\PengaduanHrController::class, 'updateStatus'])->name('pengaduan.updateStatus');
     Route::get('/data-karyawan', [\App\Http\Controllers\KaryawanController::class, 'index'])->name('hr.karyawan.index');
@@ -28,7 +28,7 @@ Route::middleware(['auth', 'role:hr,manager'])->group(function () {
     Route::post('/user/store', [\App\Http\Controllers\UserHrController::class, 'store'])->name('hr.user.store');
     Route::get('/data-admin', [\App\Http\Controllers\UserHrController::class, 'index'])->name('hr.user.index');
     Route::delete('/user/{user}/delete', [\App\Http\Controllers\UserHrController::class, 'destroy'])
-    ->name('hr.user.destroy');
+        ->name('hr.user.destroy');
 
 });
 
