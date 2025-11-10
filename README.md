@@ -12,90 +12,85 @@
 ---
 1. Clone Project dari GitHub
 
-   ``
+   ```
    git clone https://github.com/fahranmf/sikaper.git
-   ``
+   ```
    
 2. Pindah directory
 
-   ``
+   ```
    cd sikaper
-   ``
+   ```
    
 3. Install Dependency PHP
 
-   ``
+   ```
    composer install
-   ``
+   ```
    
 4. Install Dependency Frontend
 
-   ``
-   composer install
-   ``
+   ```
+   npm install
+   ```
    
 5. Copy env
 
-   ``
+   ```
    cp .env.example .env
-   ``
+   ```
    
 6. Ubah env
 
-   ``
+   ```
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=db_sikaper
     DB_USERNAME=root
     DB_PASSWORD=
-   ``
+   ```
    
-7. Generate Laravel Key
+8. Generate Laravel Key
 
-   ``
+   ```
    php artisan key:generate
-   ``
+   ```
    
-8. Start Laragon jangan lupa, lalu create database
-
-   ``
-   CREATE DATABASE db_sikaper;
-   ``
+9. Start Laragon jangan lupa, abis itu jalankan migrasi
    
-9. Jalankan migrasi
-
-   ``
+   ```
    php artisan migrate
-   ``
+   ```
    
-   lalu
+   pilih *yes*, lalu
 
-   ``
+   ```
    php artisan db:seed
-   ``
+   ```
+   
 
 10. Jalankan Storage Link
 
-    ``
+    ```
     php artisan storage:link
-    ``
+    ```
     
 11. Jalankan Dev Server Laravel + Vite
 
-    ``
+    ```
     php artisan serve
-    ``
+    ```
     
     lalu
 
-    ``
+    ```
     npm run dev
-    ``
+    ```
     
-    ---
-    <p align="center">
-      <img src="https://github.com/user-attachments/assets/d1a7ea3d-68d6-45ba-96c2-bd3f6d044a30" alt="Gausah Nanya Kalo Bukan Wita" width="1500" height="300"/>
-    </p>
+---
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/d1a7ea3d-68d6-45ba-96c2-bd3f6d044a30" alt="Gausah Nanya Kalo Bukan Wita" width="1500" height="300"/>
+</p>
 
 
