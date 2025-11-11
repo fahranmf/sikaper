@@ -20,10 +20,15 @@ class PengaduanHrController extends Controller
     {
         $request->validate([
             'status' => 'required|in:menunggu,diproses,selesai',
+            'tanggapan' => 'nullable|string|max:1000',
         ]);
 
-        $pengaduan->update(['status' => $request->status]);
+        $pengaduan->update([
+            'status' => $request->status,
+            'tanggapan' => $request->tanggapan,
+        ]);
 
-        return redirect()->back()->with('success', 'Status pengaduan berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Tanggapan dan status berhasil diperbarui!');
     }
+
 }

@@ -27,6 +27,7 @@
                             <th class="py-2 px-3">Deskripsi</th>
                             <th class="py-2 px-3">Bukti Foto</th>
                             <th class="py-2 px-3">Status</th>
+                            <th class="py-2 px-3">Tanggapan HR</th>
                             <th class="py-2 px-3">Tanggal</th>
                         </tr>
                     </thead>
@@ -39,8 +40,13 @@
                                 <td class="py-2 px-3">
                                     @if ($p->bukti_foto)
                                         <button onclick="openModal('{{ asset('storage/' . $p->bukti_foto) }}')"
-                                            class="text-blue-600 hover:underline">
-                                            Lihat Foto
+                                            class="flex items-center gap-1 px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs rounded-md transition">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none"
+                                                viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 10l4.553-4.553a1.5 1.5 0 00-2.121-2.121L10 8l-2 2m0 0l-4 4m6-6v10m0 0h10" />
+                                            </svg>
+                                            <span>Lihat Foto</span>
                                         </button>
                                     @else
                                         <span class="text-gray-400 text-sm">-</span>
@@ -55,6 +61,15 @@
                                         <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">Diproses</span>
                                     @else
                                         <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded-full">Selesai</span>
+                                    @endif
+                                </td>
+
+                                {{-- Tanggapan HR --}}
+                                <td class="py-2 px-3 text-sm">
+                                    @if ($p->tanggapan)
+                                        <p class="text-gray-700">{{ Str::limit($p->tanggapan, 40) }}</p>
+                                    @else
+                                        <span class="text-gray-400 italic">Belum ada tanggapan</span>
                                     @endif
                                 </td>
                                 <td class="py-2 px-3 text-sm text-gray-500">{{ $p->created_at->format('d M Y') }}</td>
